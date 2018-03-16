@@ -1,0 +1,4 @@
+Bundle-Name: view-liferay-forms-entries-portlet
+Bundle-SymbolicName: view-liferay-forms-entries-portlet
+Bundle-Version: 1.0.0
+Export-Package: com.byteparity.forms.portlet.constants
