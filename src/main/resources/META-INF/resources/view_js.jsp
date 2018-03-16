@@ -1,18 +1,7 @@
 <script type="text/javascript">
 	$( document ).ready(function() {
 		getLiferayForms();
-		
-		$('#<portlet:namespace />fromDateSearch').datepicker({
-			onSelect: function(selected) {
-				$("#<portlet:namespace />toDateSearch").datepicker("option","minDate", selected)
-			}
-		});
-		
-		$('#<portlet:namespace />toDateSearch').datepicker({
-			onSelect: function(selected) {
-		    	$("#<portlet:namespace />fromDateSearch").datepicker("option","maxDate", selected)
-		 	}
-		});
+		$('#<portlet:namespace />fromToDateSearch').datepick({ rangeSelect: true, monthsToShow: 2, showTrigger: '#calImg'});
 	});
 	
 	function getLiferayForms(){

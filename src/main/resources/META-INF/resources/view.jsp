@@ -4,17 +4,14 @@
 
 <aui:form name="frm-filter">
    	<div class="row">
-		<div class="col-lg-2">
-			 <aui:input type="text" name="fromDateSearch" label="from-data"></aui:input>
+		<div class="col-md-4">
+			 <aui:input type="text" name="fromToDateSearch" label="from-to-date"></aui:input>
 		</div>	
-		<div class="col-lg-2">
-			 <aui:input type="text" name="toDateSearch" label="to-date" ></aui:input>
-		</div>
-		<div class="col-lg-2">
+		<div class="col-md-3">
 			<aui:select name="liferay-forms" label="liferay-forms" showEmptyOption="true">
                </aui:select>
 		</div>
-		<div class="col-lg-2">
+		<div class="col-md-2">
 			<aui:button onClick="getLiferayFormsData();" value="liferay-form-search-button" />
 			<aui:button type="clear" name="clear" value="clear"/>
 		</div>

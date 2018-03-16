@@ -9,7 +9,7 @@
 <%@ page import="com.liferay.portal.kernel.util.Validator"%>
 <%@ page import="com.liferay.portal.kernel.util.StringPool"%>
 <%@ page import="com.liferay.portal.kernel.util.Constants" %>
-<%@page import="com.byteparity.forms.configuration.ViewFormEntriesConfiguration"%>
+<%@ page import="com.byteparity.forms.configuration.ViewFormEntriesConfiguration"%>
 
 <c:set var = "now" value = "<%= new java.util.Date()%>" />
 <fmt:formatDate var="temp" type="time" value="${now}" />
@@ -23,10 +23,14 @@
 <script src="<%=request.getContextPath()%>/js/jszip.min.js?${temp}"></script>
 <script src="<%=request.getContextPath()%>/js/pdfmake.min.js?${temp}"></script>
 <script src="<%=request.getContextPath()%>/js/vfs_fonts.js?${temp}"></script>
+<script src="<%=request.getContextPath()%>/js/jquery.plugin.min.js?${temp}"></script>
+<script src="<%=request.getContextPath()%>/js/jquery.datepick.js?${temp}"></script>
+
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/jquery.dataTables.min.css?${temp}">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/jquery-ui.css?${temp}">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/buttons.dataTables.min.css?${temp}">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/jquery.datepick.css?${temp}">
 
 <liferay-theme:defineObjects />
 <portlet:defineObjects />

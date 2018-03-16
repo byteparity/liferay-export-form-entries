@@ -49,9 +49,14 @@ public class ViewFormEntriesMVCResourceCommand implements MVCResourceCommand {
 			int ind = selectedForm.indexOf(",");
 			long recordSetId = Long.parseLong(selectedForm.substring(0, ind));
 			long ddmStructureId = Long.parseLong(selectedForm.substring(ind + 1, selectedForm.length()));
-			String fromDate = ParamUtil.getString(resourceRequest, "fromDateSearch");
-			String toDate = ParamUtil.getString(resourceRequest, "toDateSearch");
-
+			String fromToDate = ParamUtil.getString(resourceRequest, "fromToDateSearch");
+			String fromDate = "";
+			String toDate = "";
+			if(Validator.isNotNull(fromToDate)){
+				fromDate = fromToDate.split("-")[0];
+				toDate = fromToDate.split("-")[1];
+			}
+			
 			// SET FORM ENTERIES
 			List<List<String>> recordsList = null;
 			List<Map<String, String>> fieldList = null;

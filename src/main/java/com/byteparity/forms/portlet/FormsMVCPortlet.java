@@ -16,7 +16,7 @@ import org.osgi.service.component.annotations.Component;
 	property = {
 		"com.liferay.portlet.display-category="+FormsMVCPortletKeys.PORTLET_CATEGORY,
 		"com.liferay.portlet.instanceable=true",
-		"javax.portlet.display-name=liferay-forms-data-list-portlet Portlet",
+		"javax.portlet.display-name="+FormsMVCPortletKeys.PORTLET_DISPLAY_NAME,
 		"javax.portlet.init-param.template-path=/",
 		"javax.portlet.init-param.view-template=/view.jsp",
 		"javax.portlet.name=" + FormsMVCPortletKeys.PORTLET_ID,
