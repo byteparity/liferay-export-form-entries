@@ -105,7 +105,6 @@ public class ActionUtil {
 				}
 
 			}
-
 			recordsList.add(row);
 		}
 		return recordsList;

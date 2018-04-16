@@ -9,6 +9,7 @@ import javax.portlet.PortletException;
 import javax.portlet.PortletPreferences;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
+import javax.servlet.http.HttpServletResponse;
 
 import org.osgi.service.component.annotations.Component;
 
@@ -78,13 +79,14 @@ public class ViewFormEntriesMVCResourceCommand implements MVCResourceCommand {
 				jsonObject.put("data", recordsList);
 
 				try {
+					resourceResponse.setContentType("application/json");
+					resourceResponse.setProperty(ResourceResponse.HTTP_STATUS_CODE, Integer.toString(HttpServletResponse.SC_OK));
 					resourceResponse.getWriter().println(jsonObject);
 				} catch (IOException e) {
 					LOGGER.error(e.getMessage());
 				}
 			} catch (PortalException | ParseException e) {
 				LOGGER.error(e.getMessage());
-
 			}
 		}
 		return false;

@@ -23,64 +23,70 @@
 		}else{
 			var formData = new FormData($("#<portlet:namespace />frm-filter")[0]);
 			 $.ajax({
-				 "url": "${viewFormEntries}",
-				 "data":formData,
-				 contentType: false,
-			     processData: false,
-				 cache: false,
-	             "success": function(json) {
-	                var tableHeaders = "";
-	                $.each(json.columns, function(i, val){
-	                     tableHeaders += "<th>" + val + "</th>";
-	                });
-                 	$("#tableDiv").empty();
-               		$("#tableDiv").append('<table id="displayTable" class="display responsive nowrap" cellspacing="0" width="100%"><thead><tr>' + tableHeaders + '</tr></thead></table>');	                	 
-	                $('#displayTable').dataTable({
-	                	dom: 'Bfrtip',
-	                	data: json.data,
-	                	"scrollX": true,
-	                	"autoWidth" : true,
-	                	"processing": true,
-		     		    "dom": 'lBfrtip',
-		     		    select: true,
-		     	        "buttons": [
-		     	            {
-		     	                extend: 'collection',
-		     	                text: 'Export',
-		                        autoClose: true,
-		     	                buttons: [
-		     	                          
-									$.extend( true, {},{
-										extend : 'excelHtml5',
-										title : function() {
-									          return $("#<portlet:namespace />liferay-forms option:selected").text();
-									     }
-									} ),
-									$.extend( true, {},{
-										extend : 'pdfHtml5',
-									      title : function() {
-									          return $("#<portlet:namespace />liferay-forms option:selected").text();
-									      },
-									      orientation : 'landscape',
-									      pageSize : 'A0',
-									      text : 'PDF',
-									      titleAttr : 'PDF',
-									      filename: 'download'
-									} ),
-									$.extend( true, {}, {
-										extend : 'csvHtml5',
-										title : function() {
-									          return $("#<portlet:namespace />liferay-forms option:selected").text();
-									     }
-									} )
-		     	                ]
-		     	            }
-		     	        ]    
-               		});
-	             }, 
-	             "dataType": "json"
+				"url": "${viewFormEntries}",
+				"data":formData,
+				contentType: false,
+			    processData: false,
+				cache: false,
+	            success: function(json) {
+	            	console.log("Success");
+	            	jQueryDataTable(json);
+	            },
+	            error: function(xhr,err,errorThrown){
+	            	console.log("Error: "+errorThrown);
+	            }
         	});
 		}
+	}
+	function jQueryDataTable(json){
+		var tableHeaders = "";
+        $.each(json.columns, function(i, val){
+             tableHeaders += "<th>" + val + "</th>";
+        });
+     	$("#tableDiv").empty();
+   		$("#tableDiv").append('<table id="displayTable" class="display responsive nowrap" cellspacing="0" width="100%"><thead><tr>' + tableHeaders + '</tr></thead></table>');	                	 
+        $('#displayTable').dataTable({
+        	dom: 'Bfrtip',
+        	data: json.data,
+        	"scrollX": true,
+        	"autoWidth" : true,
+        	"processing": true,
+ 		    "dom": 'lBfrtip',
+ 		    select: true,
+ 	        "buttons": [
+ 	            {
+ 	                extend: 'collection',
+ 	                text: 'Export',
+                    autoClose: true,
+ 	                buttons: [
+ 	                          
+						$.extend( true, {},{
+							extend : 'excelHtml5',
+							title : function() {
+						          return $("#<portlet:namespace />liferay-forms option:selected").text();
+						     }
+						} ),
+						$.extend( true, {},{
+							extend : 'pdfHtml5',
+						      title : function() {
+						          return $("#<portlet:namespace />liferay-forms option:selected").text();
+						      },
+						      orientation : 'landscape',
+						      pageSize : 'A0',
+						      text : 'PDF',
+						      titleAttr : 'PDF',
+						      filename: 'download'
+						} ),
+						$.extend( true, {}, {
+							extend : 'csvHtml5',
+							title : function() {
+						          return $("#<portlet:namespace />liferay-forms option:selected").text();
+						     }
+						} )
+ 	                ]
+ 	            }
+ 	        ]    
+   		});
 	}
 	
 </script>

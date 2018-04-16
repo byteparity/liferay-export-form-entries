@@ -39,7 +39,7 @@ public class ViewFormMVCResourceCommand implements MVCResourceCommand {
 
 		// GET FORMS BY GROUP ID
 		DynamicQuery dynamicQuery = DDLRecordSetLocalServiceUtil.dynamicQuery();
-		dynamicQuery.add(PropertyFactoryUtil.forName("groupId").eq(themeDisplay.getScopeGroupId()));
+		dynamicQuery.add(PropertyFactoryUtil.forName("companyId").eq(themeDisplay.getCompanyId()));
 		List<DDLRecordSet> recordSet = DDLRecordSetLocalServiceUtil.dynamicQuery(dynamicQuery);
 		JSONArray jsonArray = JSONFactoryUtil.createJSONArray();
 		JSONObject jsonObject = null;

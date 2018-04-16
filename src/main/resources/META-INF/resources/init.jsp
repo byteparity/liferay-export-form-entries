@@ -12,7 +12,7 @@
 <%@ page import="com.byteparity.forms.configuration.ViewFormEntriesConfiguration"%>
 
 <c:set var = "now" value = "<%= new java.util.Date()%>" />
-<fmt:formatDate var="temp" type="time" value="${now}" />
+<fmt:formatDate var="temp" pattern="s" type="time" value="${now}" />
 
 <script src="<%=request.getContextPath()%>/js/jquery.dataTables.min.js?${temp}"></script>
 <script src="<%=request.getContextPath()%>/js/jquery-ui.js?${temp}"></script>
