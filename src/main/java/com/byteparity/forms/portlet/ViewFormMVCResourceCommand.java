@@ -37,7 +37,7 @@ public class ViewFormMVCResourceCommand implements MVCResourceCommand {
 			throws PortletException {
 		ThemeDisplay themeDisplay = (ThemeDisplay) resourceRequest.getAttribute(WebKeys.THEME_DISPLAY);
 
-		// GET FORMS BY GROUP ID
+		// GET FORMS BY COMPANY ID
 		DynamicQuery dynamicQuery = DDLRecordSetLocalServiceUtil.dynamicQuery();
 		dynamicQuery.add(PropertyFactoryUtil.forName("companyId").eq(themeDisplay.getCompanyId()));
 		List<DDLRecordSet> recordSet = DDLRecordSetLocalServiceUtil.dynamicQuery(dynamicQuery);
