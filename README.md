@@ -1,4 +1,4 @@
-# Liferay 7 Export Form Entries
+# Liferay Export Form Entries
 
 To collect the information from User’s, whether you’re asking them to submit the survey, contact us form or any application form. In this case you need to design form, Liferay provides almost limitless form building capability with Form Application. Different users can fill their form and all the data related to forms can be visible to administrator or whom so ever has access. But what if admin wants to search forms/applications with specific value, what if admin wants to export the	records and share it to someone else. With the help of “Export Form entries component” user can perform search and export form entries in different formats.
 
